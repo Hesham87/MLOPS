@@ -1,0 +1,37 @@
+data:
+  raw_data_path: /Titanic
+  processed_data_path: /Titanic/preprocessed_data
+  file_name: titanic_train.csv
+  id_column: Id
+  target_column: Survived
+  test_size: 0.15
+  random_state: 123
+model:
+  processed_data_path: ${Pipeline.data.processed_data_path}
+  file_name: ${Pipeline.data.file_name}
+  target_column: ${Pipeline.data.target_column}
+  Random_forest:
+    model_name: RandomForest_pipeline.pkl
+    model_path: /Titanic/saved_models
+    trained_model_path: ${Pipeline.model.Random_forest.model_path}/${Pipeline.model.Random_forest.model_name}
+    optimization_params:
+      n_estimators: 100
+      min_samples_leaf: 3
+      oob_score: True
+      random_state: 42
+  Logestic_regression:
+    model_name: LogisticRegression_pipeline.pkl
+    model_path: /Titanic/saved_models
+    trained_model_path: ${Pipeline.model.Logestic_regression.model_path}/${Pipeline.model.Logestic_regression.model_name}
+    optimization_params:
+      max_iter: 1000
+      random_state: 42
+evaluate:
+  Random_forest:
+    model_name: ${Pipeline.model.Random_forest.model_name}
+    model_path: ${Pipeline.model.Random_forest.model_path}
+    trained_model_path: ${Pipeline.model.Random_forest.trained_model_path}
+  Logestic_regression:
+    model_name: ${Pipeline.model.Logestic_regression.model_name}
+    model_path: ${Pipeline.model.Logestic_regression.model_path}
+    trained_model_path: ${Pipeline.model.Logestic_regression.trained_model_path}
