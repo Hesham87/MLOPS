@@ -1,0 +1,6 @@
+outs:
+- md5: 9071283cb7a64176a02c9e68fafecfc2
+  size: 4951
+  isexec: true
+  hash: md5
+  path: LogisticRegression_pipeline.pkl
