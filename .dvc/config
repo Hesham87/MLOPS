@@ -1,0 +1,4 @@
+[core]
+    remote = localremote_dvc
+['remote "localremote_dvc"']
+    url = /teamspace/studios/this_studio/mlops/
