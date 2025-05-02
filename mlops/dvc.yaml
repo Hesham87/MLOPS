@@ -1,0 +1,9 @@
+stages:
+  Randomforest:
+    cmd: python Titanic/titanic.py --config=titanic.yaml
+    deps:
+    - Titanic/titanic.py
+    params:
+    - Pipeline/titanic.yaml
+    outs:
+    - Titanic/saved_models/RandomForest_pipeline.pkl
